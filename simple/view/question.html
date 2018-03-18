@@ -1,0 +1,34 @@
+<html>
+    <head>
+        <title>Detaille question</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    </head>
+    <body ng-app="myApp" ng-controller="questionController">
+        
+        <script src="/var/www/html/simple/libs/angular.js" ></script>
+        
+        <script src="/var/www/html/simple/script/controller.js"></script>
+        <script src="/var/www/html/simple/script/service.js"></script>
+        <script src="/var/www/html/simple/script/app.js"></script>
+
+<table onload="console.log(monService)" class="table table-bordered">
+        <thead>
+                <tr>
+                  <th>id</th>
+                  <th>Reponses</th>
+                  <th>dates</th>
+                  <th>Questions</th>
+                </tr>
+              </thead>  
+              <tbody ng-repeat="reponse in responses" >
+                    <td> {{reponse.id_rep}}</td>
+                    <td>{{reponse.text_rep}}</td>
+                    <td>{{reponse.date_rep}}</td>
+                    <td>{{reponse.id_ques}}</td>
+              </tbody>
+      
+      </table>
+      <a class="btn btn-primary" href="ajoutR.html" role="button">Repondre</a>
+      
+    </body>
+</html>

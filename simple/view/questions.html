@@ -1,0 +1,96 @@
+<html>
+    <head>
+        <title>Liste questions</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    </head>
+    <body ng-app="myApp" ng-controller="questionsController">
+       <script src="/var/www/html/simple/libs/angular.js" ></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.11/angular-route.js"></script>
+<script src="/var/www/html/simple/script/controller.js"></script>
+<script src="/var/www/html/simple/script/service.js"></script>
+<script src="/var/www/html/simple/script/app.js"></script>
+       
+<table ng-if="responses == ''" class="table table-bordered">
+    <h1>Forum NTW</h1>
+    <a ng-if="responses == ''" class="btn btn-primary" href="ajoutQ.html" role="button">Ajoutez question</a>
+
+    <thead>
+                <tr>
+                 <!-- <th>id</th>-->
+                 <!-- <th>titre</th>-->
+                <th>Questions</th>
+                  <th>date</th>
+                <!--  <th>utilisateur</th>-->
+                <th>responses</th>
+                </tr>
+              </thead>  
+              <tbody ng-repeat="question in questions">
+           
+                   <!-- <td><a class="badge badge-light">{{question.id_ques}}</a></td> -->
+                 
+                  <!--  <td><a href="#{{question.id_ques}}" ng-click="getQuestion(question.id_ques)" class="badge badge-light">{{question.titre_ques}}</a></td>-->
+                    <td><a ng-href="#/{{question.id_ques}}" ng-click="getQuestion(question.id_ques, question.text_ques)"  class="badge badge-light">{{question.text_ques}}</a></td>
+                    <td><a class="badge badge-light">{{question.date}}</a></td>
+                 <!--   <td><a class="badge badge-light">{{question.id_uti}}</a></td>-->
+               <td onload="getQuestion(question.id_ques)"><a class="badge badge-light" >{{question.countResp}}</a></td>
+              </tbody>
+      
+      </table>
+       <!-- showResponsesTable is a bool by default is false in the controller-->
+      <h2 ng-if="showResponsesTable == true">Responses for: {{currentQuestion}}</h2>
+   
+      <table ng-if="showResponsesTable == true" class="table table-bordered">
+        <thead>
+                <tr>
+                <!--  <th>id</th> -->
+                  <th>Reponses</th>
+                  <th>dates</th>
+                  <th>Questions</th>
+                </tr>
+              </thead>  
+              <tbody ng-repeat="reponse in responses" >
+                <!--    <td> {{reponse.id_rep}}</td> -->
+                    <td>{{reponse.text_rep}}</td>
+                    <td>{{reponse.date_rep}}</td>
+                    <td>{{reponse.id_ques}}</td>
+              </tbody>
+      
+      </table>
+      <div ng-if="showResponsesTable == true">
+        <form ng-controller="questionsController">
+    
+          <div class="form-group">
+            <label for="text_rep"> Votre reponse:</label>
+            <input type="text"
+            class="form-control"
+            ng-model="text_resp">
+          </div>
+          <div class="form-group">
+            <label for="id_ques"> Numero de la question:</label>
+            <input type="text"
+            class="form-control"
+            ng-model="id_response"
+            id="id_ques">
+          </div>
+          <div class="form-group">
+            <label for="id_ques"> Votre identifiant:</label>
+            <input type="text"
+            class="form-control"
+            ng-model="id_uti"
+            id="id_uti">
+          </div>
+          <div class="form-group">
+            <button class="btn btn-primary" ng-click="ajoutRep()">Ajouter</button>
+          </div>
+        
+      </form> <hr>
+      
+        
+      </div>
+      
+      </body>
+
+
+    
+</html>

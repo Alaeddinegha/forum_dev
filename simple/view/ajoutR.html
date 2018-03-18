@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>ajout reponse</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="/var/www/html/simple/libs/angular.js"></script>
+  <script src="/var/www/html/simple/script/controller.js"></script>
+  <script src="/var/www/html/simple/script/service.js"></script>
+<script src="/var/www/html/simple/script/app.js"></script>
+</head>
+<body ng-init="init()" ng-app="myApp" ng-controller="questionsController">
+
+  <form ng-submit="submit()">
+    
+      <div class="form-group">
+        <label for="text_rep"> Votre reponse:</label>
+        <input type="text"
+        class="form-control"
+        ng-model="formModel.text_rep"
+        id="text_rep">
+      </div>
+      <div class="form-group">
+        <label for="id_ques"> Numero de la question:</label>
+        <input type="text"
+        class="form-control"
+        ng-model="formModel.id_ques"
+        id="id_ques">
+      </div>
+      <div class="form-group">
+        <label for="id_ques"> Votre identifiant:</label>
+        <input type="text"
+        class="form-control"
+        ng-model="formModel.id_uti"
+        id="id_uti">
+      </div>
+      <div class="form-group">
+        <button class="btn btn-primary" ng-click="ajoutRep()">Ajouter</button>
+      </div>
+    
+  </form>
+
+</body>
+</html>
